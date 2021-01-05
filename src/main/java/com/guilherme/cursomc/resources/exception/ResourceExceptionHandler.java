@@ -1,12 +1,11 @@
 package com.guilherme.cursomc.resources.exception;
 
-import com.guilherme.cursomc.services.ObjectNotFountException;
+import com.guilherme.cursomc.services.exceptions.ObjectNotFountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice

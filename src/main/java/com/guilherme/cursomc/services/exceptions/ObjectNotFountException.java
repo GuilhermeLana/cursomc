@@ -1,4 +1,4 @@
-package com.guilherme.cursomc.services;
+package com.guilherme.cursomc.services.exceptions;
 
 public class ObjectNotFountException extends RuntimeException {
 

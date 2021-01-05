@@ -1,8 +1,6 @@
 package com.guilherme.cursomc.resources;
 
-import com.guilherme.cursomc.domain.Categoria;
 import com.guilherme.cursomc.domain.Pedido;
-import com.guilherme.cursomc.repositories.PedidoRepository;
 import com.guilherme.cursomc.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +17,8 @@ public class PedidoResource {
     private PedidoService pedidoService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> find(@PathVariable Integer id){
-        Pedido obj = pedidoService.buscar(id);
+    public ResponseEntity<Pedido> find(@PathVariable Integer id){
+        Pedido obj = pedidoService.find(id);
         return ResponseEntity.ok().body(obj);
     }
 }
