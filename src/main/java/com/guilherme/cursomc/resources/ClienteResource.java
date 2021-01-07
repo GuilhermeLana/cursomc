@@ -1,8 +1,11 @@
 package com.guilherme.cursomc.resources;
 
+import com.guilherme.cursomc.domain.Categoria;
 import com.guilherme.cursomc.domain.Cliente;
 import com.guilherme.cursomc.domain.Cliente;
+import com.guilherme.cursomc.dto.CategoriaDTO;
 import com.guilherme.cursomc.dto.ClienteDTO;
+import com.guilherme.cursomc.dto.ClienteNewDTO;
 import com.guilherme.cursomc.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +34,14 @@ public class ClienteResource {
     public ResponseEntity<Cliente> find(@PathVariable Integer id){
         Cliente obj = clienteService.find(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto) {
+        Cliente obj = clienteService.fromDTO(objDto);
+        obj = clienteService.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
