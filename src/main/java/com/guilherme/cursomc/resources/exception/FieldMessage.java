@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class FieldMessage implements Serializable {
 
-    private String fieldname;
+    private String fieldName;
     private String message;
 
     public FieldMessage(){
@@ -12,16 +12,16 @@ public class FieldMessage implements Serializable {
     }
 
     public FieldMessage(String fieldname, String message) {
-        this.fieldname = fieldname;
+        this.fieldName = fieldname;
         this.message = message;
     }
 
-    public String getFieldname() {
-        return fieldname;
+    public String getFieldName() {
+        return fieldName;
     }
 
-    public void setFieldname(String fieldname) {
-        this.fieldname = fieldname;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
     public String getMessage() {
